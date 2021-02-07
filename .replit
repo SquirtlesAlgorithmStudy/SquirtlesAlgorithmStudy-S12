@@ -1,2 +1,2 @@
-language = "bash"
-run = ""
+run = "python '의진/Week 1/CodeUpPractice1.py'"
+language = "python3"
