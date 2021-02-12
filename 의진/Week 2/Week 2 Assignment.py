@@ -64,6 +64,11 @@ for j in range(n-1,0,-1):
 
 print(result)  
 
+'''
+K = [int(input()) for _ in range(N)]
+입력이 개행 형태로 주어진 경우에 list Comprehension을 이용해서 입력을 표현할 수 있다!
+'''
+
 # 예시 입출력 이외의 예의 경우도 확인할 것 !
 
 
