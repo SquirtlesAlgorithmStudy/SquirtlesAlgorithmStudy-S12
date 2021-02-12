@@ -92,10 +92,11 @@ a, b =map(int, input().split('.'))
 print(a)
 print(b)
 '''
-
+'''
 #23 - 2
 data = [int(x) for x in input().split('.')]
 print(data[0])
 print(data[1])
 
+'''
 
