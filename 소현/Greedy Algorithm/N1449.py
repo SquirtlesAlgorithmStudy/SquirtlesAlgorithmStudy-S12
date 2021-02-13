@@ -7,7 +7,7 @@
 import sys
 input = sys.stdin.readline
 
-# 물 새는 위치 N , 테이프 길이 L
+# 물 새는 곳의 갯수 N , 테이프 길이 L, 물새는 위치 tmp
 N, L = map(int,input().split())
 tmp = list(map(int,input().split()))
 
