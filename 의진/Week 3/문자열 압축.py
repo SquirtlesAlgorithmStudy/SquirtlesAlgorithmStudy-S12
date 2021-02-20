@@ -23,9 +23,4 @@ def solution(s):
     answer = min(result)                 
     return answer
 
-def divisor (val):
-    result = []
-    for i in range(val):
-        if (val % (i+1))== 0 : result.append(i+1)
-    
-    return result
+
