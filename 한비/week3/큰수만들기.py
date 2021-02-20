@@ -7,11 +7,13 @@ def solution(number, k):
 
         if k==0:
             num_li.append(list(number[i:])
-            break
-        
+            break  
         num_li.append(n)
-
-    num_li = num_li[:-k] if k > 0 else num_li
+        
+    if k>0:
+        num_li = num_li[:-k]
+    else:
+        num_li
     
     answer = "".join(num_li)
     
