@@ -5,7 +5,6 @@
 // 조이스틱
 
 
-
 import Foundation
 
 func solution(_ name:String) -> Int {
