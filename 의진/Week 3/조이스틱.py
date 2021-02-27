@@ -30,7 +30,7 @@ def solution(name):
         answer += change(data[i])
 
     return answer
-
+햐
 def change(data):
     if ord(data) <= 78: result = ord(data) - 65
     else : result = 91 - ord(data)
