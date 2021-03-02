@@ -3,6 +3,52 @@
 # 알고리즘 - BFS
 # 문제번호 : 18405 경쟁적 전염
 
+
+import sys
+from collections import deque
+fast_in = sys.stdin.readline
+
+N, K = map(int,fast_in().strip().split(" "))
+
+table =[]
+where = deque([])
+
+# table 형성
+for i in range(N):
+    tmp = list(map(int, fast_in().strip().split(" ")))
+    # 바이러스가 존재하는 칸을 미리 deque에 받아 놓음
+    for j in range(len(tmp)):
+        if tmp[j] != 0:
+            where.append((i,j,tmp[j],0))
+    table.append(tmp)
+
+S,X,Y = map(int,fast_in().strip().split(" "))
+
+# table[x][y] 일 때
+dx = [-1,1,0,0] # 상하좌우
+dy = [0,0,-1,1]
+
+"""
+처음에 작은놈부터 시작하면 그다음 queue들은 자동으로 작은애들부터 주변을 탐색하게 되어있음 ㅠㅠ
+"""
+where = deque(sorted(where, key=lambda x:x[2]))
+
+while where:
+    x,y,vtype,sec = where.popleft()
+
+    if sec == S:
+        break
+    for i in range(4):
+        nx = x + dx[i]
+        ny = y + dy[i]
+        if 0 <= nx < N and 0 <= ny < N and table[nx][ny] == 0: # 감염되지 않았다면
+            table[nx][ny] = vtype # 감염되지 않았다면 x,y로부터 넘어왔으니 그걸로 감염되어야하지!
+            where.append((nx,ny,vtype,sec+1))
+
+
+print(table[X-1][Y-1])
+
+"""
 import sys
 from collections import deque
 
@@ -59,7 +105,7 @@ while where:
 #     print(tmp)
 print(table[X - 1][Y - 1])
 
-
+"""
 """
 4 3
 1 0 2 1
