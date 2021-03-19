@@ -2,6 +2,9 @@
 # 2021-03-17
 # 알고리즘 - 구현
 # 문제번호 : 14503
+
+import sys
+from collections import deque
 fast_in = sys.stdin.readline
 
 N, M = map(int, fast_in().strip().split())
