@@ -1,2 +1,2 @@
-run = "python '의진/Practice.py'"
+run = "python 'Practice.py'"
 language = "python3"
