@@ -1,7 +1,7 @@
 # 작성자 : SH_WON_96
 # 2021-04-06
 # 알고리즘 - Dijkstra Algorithm
-# 문제번호 : 1504 특정한 경로 만들기
+# 문제번호 : 1504 특정한 최단 경로
 
 # 초기 입력값 받기
 import sys
@@ -36,6 +36,10 @@ def findlen(x,y):
     while heap:
         w,v = heapq.heappop(heap)
         visited[v] = 1
+
+        # 이거 추가하니까 1312 ms -> 460 ms 로 줄어들었음
+        if v == y:
+             return tmpweight[y]
 
         for (nv, nw) in connection[v]:
             if visited[nv] == 0:
