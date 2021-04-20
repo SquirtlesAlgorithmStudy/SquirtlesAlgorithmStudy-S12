@@ -40,6 +40,7 @@ while queue:
                     visited[nx][ny] = visited[x][y]
                     # 숫자가 그대로니깐 얘를 먼저 처리해줘야함
                     queue.appendleft((nx, ny))
+      
 
 
 print(visited[N-1][N-1])
