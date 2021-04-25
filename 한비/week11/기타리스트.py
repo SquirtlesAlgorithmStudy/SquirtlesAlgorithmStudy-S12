@@ -1,22 +1,33 @@
 import sys
 input=sys.stdin.readline
-n, s, m = map(int, input().split())
-array = list(map(int, input().split()))
 
-dp = [[0] *(m+1) for _ in range(n+1)]
-dp[0][s]=1
 
-for i in range(1, n+1):
-	for j in range(m+1):
-        if dp[i-1][j] ==0:
-        	continue
-        if j - array[i-1]>=0:
-        	dp[i][j- array[i-1]] = 1
-        if j _ array[i-1]<=m:
-        	dp[i][j+ array[i-1]] = 1    
-result = -1
-for i in range(m,-1,-1):
-	if dp[n][i] ==1:
-    	result= i
+N,S,M=map(int,input().split())
+play_list = list(map(int, input().split()))
+possible_volumns=[]
+
+def solve(start, possible, M):
+    nxt=set()
+    if start[0]==-1 or len(start)==0:
+        return -1
+    for volumn in start:
+        if volumn+possible<=M:
+            nxt.add(volumn+ possible)
+        if volumn-possible>=0:
+            nxt.add(volumn- possible)
+    if len(nxt)==0:
+        return -1
+    return list(nxt)
+
+start = [S]
+check = True
+for possible in play_list:
+    if start[0]==-1 or len(start)==0:
+        check = False
+        print(-1)
         break
-print(result)
+    else:
+        start=solve(start, possible, M)
+
+if check:
+    print(max(start))
