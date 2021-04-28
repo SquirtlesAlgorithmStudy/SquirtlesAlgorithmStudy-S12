@@ -1,0 +1,2 @@
+run = "python 'practice.py'"
+language = "python3"
