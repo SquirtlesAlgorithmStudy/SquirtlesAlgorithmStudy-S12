@@ -19,7 +19,7 @@ for i in range(len(data)):
   print(data[i][3])
  
 '''
-students_score = []
+students_score = []   
 for _ in range(int(input())):
     name, K, E, M = input().split()
     students_score.append([int(K), int(E), int(M), name])
