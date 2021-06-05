@@ -32,5 +32,3 @@ def solution(s):
     for i in range(1, len(temp)):
       answer.append((list(temp[i]-temp[i-1]))[0])   
     return answer
-
-print(solution("{{20,111},{111}}"))
