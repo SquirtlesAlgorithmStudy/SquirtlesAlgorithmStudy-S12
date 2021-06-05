@@ -36,5 +36,3 @@ def solution(jobs):
      
       clock += 1
     return avgcalculate(jobs_f, end)
-
-print(solution([[1, 3], [2, 9], [2, 6]]))
