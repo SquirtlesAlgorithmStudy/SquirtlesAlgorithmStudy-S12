@@ -1,9 +1,9 @@
 # 햄버거 문제
 
 import sys
-
-n, k = map(int, input().split())
-data = list(sys.stdin.readline().rstrip())
+fastin =  sys.stdin.readline
+n, k = map(int, fastin().split())
+data = list(fastin().rstrip())
 result = 0
 
 for i in range(n-1):
@@ -18,7 +18,7 @@ for i in range(n-1):
         break
 
 print(result)
-
+'''
 
 
 #반복문 내부 외부 변수의 활용
@@ -63,12 +63,12 @@ for j in range(n-1,0,-1):
     data[j-1] -= (data[j-1] - data[j]+1)
 
 print(result)  
-
+'''
 '''
 K = [int(input()) for _ in range(N)]
 입력이 개행 형태로 주어진 경우에 list Comprehension을 이용해서 입력을 표현할 수 있다!
 '''
-
+'''
 # 예시 입출력 이외의 예의 경우도 확인할 것 !
 
 
@@ -94,6 +94,7 @@ print(result)
 '''
 # 뒤집기
 '''
+!''
 import sys
 data = list(sys.stdin.readline().rstrip())
 data = list(map(int,data))
@@ -116,8 +117,8 @@ print(result)
 
 #입력 방식에 변화를 주어서 계산 속도 개선
 
-
-
+'''
+'''
 
    
 
