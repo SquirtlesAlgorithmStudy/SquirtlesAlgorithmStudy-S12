@@ -13,5 +13,3 @@ if A > B :
   print(B)
 else :
   print(A)
-
-  
