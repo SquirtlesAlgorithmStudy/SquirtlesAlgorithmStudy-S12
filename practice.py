@@ -1,26 +1,51 @@
-#1913 달팽이
-n=int(input())
-li= [[0]*n for i in range(n)]
-k=0
+N = int(input())
 
-for i in range(n):
-  for j in range(n):
-    k=k+1
-    li[i][j]=k
-    print(li[i][j],end=" ")
-  print("\n")
 
-#기준점
-p=(n-1)/2
+for i in range(N):
+    board = [0] * N
+    board.append(N) 
+'''
+위로갈때 dx,dy =0, -1  > u
+오른쪽   dx,dy = 1,0   > r
+아래로    dx,dy = 0,1  > d
+왼쪽     dx,dy = -1, 0 > l
 
-li[p][p]=1
-li[p-1][p]=2
-li[p-1][p+1]=3
-li[p][p+1]=4
-li[p+1][p+1]=5
-li[p+1][p]=6
-li[p+1][p-1]=7
-li[p][p-1]=8
-li[p-1][p-1]=9
-li[p-2][p-1]=10
-print(li)
+
+if N = 3 :
+  u,d,l,r,u = 1, 1, 2, 2, 2
+if N = 5 :
+  u,d,l,r,u = 1, 3, 4, 4, 4
+if N = 7 :
+  u,d,l,r,u = 1, 5, 6, 6, 6
+if N = K:
+  u,d,l,r,u = 1, k-2, k-1, k-1, k-1 <<<규칙
+'''
+dx = [0,1,0,-1]
+dy = [-1,0,1,0]
+
+# x, y 는 시작행렬
+x,y = (N//2,N//2)
+i = 1
+board[x][y] = 1
+i += 1
+for i in range(N//2):
+    for up in range(1):
+        x = x + dx[0]
+        y = y + dy[0]
+        board[x][y] += 1
+    for right in range(N-2):
+        x = x + dx[1]
+        y = y + dy[1]
+        board[x][y] += 1
+    for down in range(N-1):
+        x = x + dx[2]
+        y = y + dy[2]
+        board[x][y] += 1
+    for left in range(N-1):
+        x = x + dx[3]
+        y = y + dy[3]
+        board[x][y] += 1
+    for up in range(N-1):
+        x = x + dx[0]
+        y = y + dy[0]
+        board[x][y] += 1

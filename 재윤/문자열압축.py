@@ -6,6 +6,8 @@ def solution(s):
     # 2개연속까진 하나 안하나 똑같음
     # 연속된수는 문자길이의 절반이 최대
     '''
+    aa = 2a
+    aaa = 3a      3 > 2
     abab = 2ab    4 > 3        1  
     ababab = 3ab  6 > 3        3
 
