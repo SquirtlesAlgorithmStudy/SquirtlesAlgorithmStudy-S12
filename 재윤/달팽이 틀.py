@@ -1,9 +1,9 @@
 N = int(input())
-num = int(input())
+k = int(input())
 
-for i in range(N):
-    board = [0] * N
-    board.append(N) 
+A = N//2
+
+board = [[0]*N for _ in range(N)] 
 '''
 위로갈때 dx,dy =0, -1  > u
 오른쪽   dx,dy = 1,0   > r
@@ -19,33 +19,53 @@ if N = 7 :
   u,d,l,r,u = 1, 5, 6, 6, 6
 if N = K:
   u,d,l,r,u = 1, k-2, k-1, k-1, k-1 <<<규칙
+  n = 3 > 1바퀴 3
+  n = 5 > 2바퀴 3 5
+  n = 7 > 3바퀴 3 5 7
 '''
-dx = [0,1,0,-1]
-dy = [-1,0,1,0]
+dy = [0,1,0,-1]
+dx = [-1,0,1,0]
 
 # x, y 는 시작행렬
 x,y = (N//2,N//2)
-i =1
-board[x][y] = i
-i += 1
-for i in range(N//2):
-    for up in range(1):
+index = 1
+board[x][y] = 1
+
+for i in range(1,A+1):
+    for _ in range(1): # up
         x = x + dx[0]
         y = y + dy[0]
-        board[x][y] += 1
-    for right in range(N-2):
+        index += 1
+        board[x][y] = index
+        
+    for _ in range(2*i-1): # right
         x = x + dx[1]
         y = y + dy[1]
-        board[x][y] += 1
-    for down in range(N-1):
+        index += 1
+        board[x][y] = index
+        
+    for _ in range(2*i): # down
         x = x + dx[2]
         y = y + dy[2]
-        board[x][y] += 1
-    for left in range(N-1):
+        index += 1
+        board[x][y] = index
+    for _ in range(2*i): # left
         x = x + dx[3]
         y = y + dy[3]
-        board[x][y] += 1
-    for up in range(N-1):
+        index += 1
+        board[x][y] = index
+    for _ in range(2*i): # up
         x = x + dx[0]
         y = y + dy[0]
-        board[x][y] += 1
+        index += 1
+        board[x][y] = index
+        
+for x in range(N):
+    for y in range(N):
+        print(board[x][y], end= " ")
+    print("")
+
+for x in range(N):
+    for y in range(N):
+        if board[x][y] == k : print(x+1, y+1)
+            
