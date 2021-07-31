@@ -1,51 +1,25 @@
-N = int(input())
+#큰 수 만들기
+def solution(number, k):
+  #가장 큰 수를 기준점으로
+  m=max(number[:-k])
+  m_ad=number.find(m)
+  ml=[m]
+  answer=''
+  print(m_ad)
 
+  for i in range(len(number)-k-1):
+    print(number[m_ad+i+1:len(number)-k+i+1])
+    #print('시작: ', m_ad+i)
+    #print('끝: ', number[-k+i])
+    ml.append(max(number[m_ad+i+1:len(number)-k+i+1]))
 
-for i in range(N):
-    board = [0] * N
-    board.append(N) 
-'''
-위로갈때 dx,dy =0, -1  > u
-오른쪽   dx,dy = 1,0   > r
-아래로    dx,dy = 0,1  > d
-왼쪽     dx,dy = -1, 0 > l
+  #i번째 기준점 ~ number[:-k+i]에서 기준점 number-k개 만들기 & 리스트
+  #기준점 리스트 요소 전부 더하기
 
+  print(ml)
 
-if N = 3 :
-  u,d,l,r,u = 1, 1, 2, 2, 2
-if N = 5 :
-  u,d,l,r,u = 1, 3, 4, 4, 4
-if N = 7 :
-  u,d,l,r,u = 1, 5, 6, 6, 6
-if N = K:
-  u,d,l,r,u = 1, k-2, k-1, k-1, k-1 <<<규칙
-'''
-dx = [0,1,0,-1]
-dy = [-1,0,1,0]
-
-# x, y 는 시작행렬
-x,y = (N//2,N//2)
-i = 1
-board[x][y] = 1
-i += 1
-for i in range(N//2):
-    for up in range(1):
-        x = x + dx[0]
-        y = y + dy[0]
-        board[x][y] += 1
-    for right in range(N-2):
-        x = x + dx[1]
-        y = y + dy[1]
-        board[x][y] += 1
-    for down in range(N-1):
-        x = x + dx[2]
-        y = y + dy[2]
-        board[x][y] += 1
-    for left in range(N-1):
-        x = x + dx[3]
-        y = y + dy[3]
-        board[x][y] += 1
-    for up in range(N-1):
-        x = x + dx[0]
-        y = y + dy[0]
-        board[x][y] += 1
+  for i in range(len(number)-k):
+    answer+=ml[i]
+  return answer
+  
+print(solution('1924',2))
