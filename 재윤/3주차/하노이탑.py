@@ -1,3 +1,9 @@
+'''
+n = 판의수
+a = 시작점
+b = 목표지점
+'''
+
 def hanoi(n,a,b):
     if n==1 :
         print(a,b)
