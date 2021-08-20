@@ -33,17 +33,16 @@ def bfs(node, graph):
   queue.append(node)
   visited = [0] * (n + 2)
   visited[node] = 1
-  count = 0
 
   while queue:
-    count += 1
+  
     node = queue.popleft()
     for index, distance in enumerate(graph[node]):
       if 0 < distance <= 1000 and index == n+1:
         return 'happy'
 
-      if 0 < distance <= 1000 and ((visited[index] == 0) or (visited[index] > visited[node] + 1)):
-        visited[index] = count
+      if 0 < distance <= 1000 and ((visited[index] == 0) :
+        visited[index] = 1
         queue.append(index)
     
   return 'sad' 
